@@ -92,7 +92,7 @@ public class ModrinthPublishTask extends DefaultTask {
         for (String gameVersion : extension.getGameVersions().get()) {
             if (gameVersion.endsWith("-snapshot"))
                 continue;
-            finalGameVersions.add(gameVersion);
+            finalGameVersions.add(gameVersion.toLowerCase());
         }
 
         builder.gameVersions(finalGameVersions);
@@ -105,7 +105,7 @@ public class ModrinthPublishTask extends DefaultTask {
                 continue;
             }
 
-            finalLoaders.add(loader);
+            finalLoaders.add(loader.toLowerCase());
         }
 
         if (!finalLoaders.isEmpty())
