@@ -52,7 +52,11 @@ public class ModPublisherGradleExtension {
     @Getter private final Property<Object> changelog;
 
     // Version. Used for Modrinth and GitHub
+    @Deprecated
     @Getter private final Property<String> version;
+
+    // Project Version. Used by Modrinth and GitHub
+    @Getter private final Property<String> projectVersion;
 
     // Friendly display name for the files
     @Getter private final Property<String> displayName;
@@ -106,6 +110,7 @@ public class ModPublisherGradleExtension {
         this.versionType = project.getObjects().property(String.class).convention("release");
         this.changelog = project.getObjects().property(Object.class);
         this.version = project.getObjects().property(String.class);
+        this.projectVersion = project.getObjects().property(String.class).convention(this.version);
         this.displayName = project.getObjects().property(String.class);
         this.gameVersions = project.getObjects().listProperty(String.class).empty();
         this.loaders = project.getObjects().listProperty(String.class).empty();
@@ -501,7 +506,7 @@ public class ModPublisherGradleExtension {
         /**
          * GitHub Release tag. Defaults to Version
          */
-        private String tag = ModPublisherGradleExtension.this.version.getOrNull();
+        private String tag = ModPublisherGradleExtension.this.projectVersion.getOrNull();
 
         /**
          * GitHub Repo. username/repo or URL

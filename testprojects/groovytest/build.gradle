@@ -38,7 +38,7 @@ publisher {
     setModrinthID("dsgfhs79789")
     setVersionType("beta")
     setChangelog("https://raw.githubusercontent.com/hypherionmc/changelogs/main/sdlink/combo.md")
-    setVersion("1.20.2-${project.version}")
+    setProjectVersion("1.20.2-${project.version}")
     setDisplayName("[1.20.x] Simple Discord Link - ${project.version}")
     setGameVersions("1.20", "1.20.1", "1.20.2")
     setLoaders(ModLoader.FABRIC, ModLoader.FORGE)

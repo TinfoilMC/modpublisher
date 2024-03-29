@@ -119,7 +119,7 @@ public class GithubUploadTask extends DefaultTask {
             GHReleaseBuilder releaseBuilder = new GHReleaseBuilder(ghRepository, tag);
 
             // Use the first non-empty value in [displayName, version, githubTag]
-            String name = Stream.of(extension.getDisplayName(), extension.getVersion())
+            String name = Stream.of(extension.getDisplayName(), extension.getProjectVersion())
                     .map(Provider::getOrNull)
                     .filter(StringUtils::isNotBlank)
                     .findFirst()
@@ -159,7 +159,7 @@ public class GithubUploadTask extends DefaultTask {
 
         project.getLogger().lifecycle(
                 "Successfully uploaded {} (tag {}) to {}. {}.",
-                extension.getVersion().map(v -> "version " + v).getOrElse("(empty version)"),
+                extension.getProjectVersion().map(v -> "version " + v).getOrElse("(empty version)"),
                 tag,
                 ghRepository.getUrl().toString(),
                 ghRelease.getHtmlUrl().toString()

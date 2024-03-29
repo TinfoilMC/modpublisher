@@ -42,7 +42,7 @@ publisher {
     githubRepo.set("OWNER/REPO")
     versionType.set("release")
     changelog.set("Coming Soon")
-    version.set("1.3.0")
+    projectVersion.set("1.3.0")
     displayName.set("MyAwesomeMod - Version")
     gameVersions.set(listOf("1.19.3", "1.19.4"))
     setGameVersions("1.19.3", "1.19.4")

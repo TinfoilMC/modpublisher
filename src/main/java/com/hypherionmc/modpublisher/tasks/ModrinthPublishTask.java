@@ -79,13 +79,13 @@ public class ModrinthPublishTask extends DefaultTask {
         builder.projectId(resolveSlug(modrinthAPI, extension.getModrinthID().get()));
         builder.changelog(CommonUtil.resolveString(extension.getChangelog().get()));
         builder.versionType(ProjectVersion.VersionType.valueOf(extension.getVersionType().get().toUpperCase()));
-        builder.versionNumber(extension.getVersion().get());
+        builder.versionNumber(extension.getProjectVersion().get());
         uploadFiles.add(uploadFile);
 
         if (extension.getDisplayName().isPresent() && !extension.getDisplayName().get().isEmpty()) {
             builder.name(extension.getDisplayName().get());
         } else {
-            builder.name(extension.getVersion().get());
+            builder.name(extension.getProjectVersion().get());
         }
 
         List<String> finalGameVersions = new ArrayList<>();

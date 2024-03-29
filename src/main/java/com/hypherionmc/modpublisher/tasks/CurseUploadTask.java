@@ -139,7 +139,7 @@ public class CurseUploadTask extends DefaultTask {
         if (extension.getDisplayName().isPresent() && !extension.getDisplayName().get().isEmpty()) {
             artifact.displayName(extension.getDisplayName().get());
         } else {
-            artifact.displayName(extension.getVersion().get());
+            artifact.displayName(extension.getProjectVersion().get());
         }
 
         if (extension.getCurseDepends() != null) {

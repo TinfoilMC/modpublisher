@@ -74,7 +74,7 @@ publisher {
     setChangelog("changelog.md")
     
     // Required for Modrinth/GitHub
-    setVersion("1.20.2-${project.version}")
+    setProjectVersion("1.20.2-${project.version}")
     
     // Fancy display name for the upload.
     // Will default to the project version if not set
@@ -259,7 +259,7 @@ publisher {
     changelog.set("Coming Soon")
     
     // Required for Modrinth/GitHub
-    version.set("1.3.0")
+    projectVersion.set("1.3.0")
     
     // Fancy display name for the upload.
     // Will default to the project version if not set
@@ -308,7 +308,7 @@ publisher {
     additionalFiles.set(listOf(tasks.jar))
 
     // Additional files to upload with a custom display name and changelog.
-    // Currently supports CurseForge only
+    // Currently, supports CurseForge only
     addAdditionalFile {
         // File, Task or String
         artifact(tasks.jar)

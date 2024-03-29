@@ -63,7 +63,7 @@ public class UploadPreChecks {
         if (extension == null)
             return false;
 
-        if (StringUtils.isBlank(extension.getVersion().getOrNull())) {
+        if (StringUtils.isBlank(extension.getProjectVersion().getOrNull())) {
             throw new Exception("Version is not defined. This is REQUIRED by modrinth");
         }
 
