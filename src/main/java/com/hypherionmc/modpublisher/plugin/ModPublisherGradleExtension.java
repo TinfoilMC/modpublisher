@@ -611,7 +611,7 @@ public class ModPublisherGradleExtension {
         /**
          * Kotlin Compatibility setter
          * Override the Repo URL used for publishing
-         * @param repo The repo to publish to. Defaults to {@link ModPublisherGradleExtension#getGithubRepo() githubRepo}
+         * @param repo The repo to publish to gitHubRepo
          */
         public void repo(String repo) {
             this.repo = repo;
