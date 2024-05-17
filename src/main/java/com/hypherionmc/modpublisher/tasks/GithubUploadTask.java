@@ -6,6 +6,7 @@
  */
 package com.hypherionmc.modpublisher.tasks;
 
+import com.github.javaparser.StringProvider;
 import com.hypherionmc.modpublisher.plugin.ModPublisherGradleExtension;
 import com.hypherionmc.modpublisher.properties.Platform;
 import com.hypherionmc.modpublisher.util.CommonUtil;
@@ -15,6 +16,7 @@ import okhttp3.OkHttpClient;
 import org.apache.commons.lang3.StringUtils;
 import org.gradle.api.DefaultTask;
 import org.gradle.api.Project;
+import org.gradle.api.provider.Property;
 import org.gradle.api.provider.Provider;
 import org.gradle.api.tasks.TaskAction;
 import org.kohsuke.github.*;
@@ -119,7 +121,9 @@ public class GithubUploadTask extends DefaultTask {
             GHReleaseBuilder releaseBuilder = new GHReleaseBuilder(ghRepository, tag);
 
             // Use the first non-empty value in [displayName, version, githubTag]
-            String name = Stream.of(extension.getDisplayName(), extension.getProjectVersion())
+            Provider<String> ghName = project.getProviders().provider(() -> extension.getGithub().getDisplayName());
+
+            String name = Stream.of(ghName, extension.getProjectVersion())
                     .map(Provider::getOrNull)
                     .filter(StringUtils::isNotBlank)
                     .findFirst()

@@ -67,6 +67,7 @@ publisher {
         createTag(true)
         createRelease(true)
         updateRelease(true)
+        displayName("Hello World")
     }
 
     curseDepends {

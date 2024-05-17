@@ -555,6 +555,11 @@ public class ModPublisherGradleExtension {
         private boolean updateRelease = true;
 
         /**
+         * Override the display name for GitHub
+         */
+        private String displayName = ModPublisherGradleExtension.this.displayName.get();
+
+        /**
          * Kotlin Compatibility setter
          * Set GitHub Release tag. Defaults to Version
          * @param tag The tag to target
@@ -615,6 +620,14 @@ public class ModPublisherGradleExtension {
          */
         public void repo(String repo) {
             this.repo = repo;
+        }
+
+        /**
+         * Override the display name for GitHub
+         * @param name The new display name to use
+         */
+        public void displayName(String name) {
+            this.displayName = name;
         }
     }
 }
