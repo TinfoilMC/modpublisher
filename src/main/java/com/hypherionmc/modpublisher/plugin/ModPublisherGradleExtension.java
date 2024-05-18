@@ -557,7 +557,7 @@ public class ModPublisherGradleExtension {
         /**
          * Override the display name for GitHub
          */
-        private String displayName = ModPublisherGradleExtension.this.displayName.get();
+        private String displayName = ModPublisherGradleExtension.this.displayName.getOrNull();
 
         /**
          * Kotlin Compatibility setter
